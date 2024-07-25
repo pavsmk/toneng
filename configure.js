@@ -37,14 +37,13 @@ let githubUsername, githubRepo, botUsername;
     const params = url.match(/github.com[/:]([^/]*)\/(.*)\.git/);
     githubUsername = params[1];
     githubRepo = params[2];
-  } catch (e) {}
+  } catch (e) { }
 
   const accessToken = await question("Enter your bot access token: ");
   if (!accessToken?.length > 0) exitError("Token is required");
 
   const githubUsernameQ = await question(
-    `Enter your github username${
-      githubUsername ? ` (${githubUsername})` : ``
+    `Enter your github username${githubUsername ? ` (${githubUsername})` : ``
     }: `
   );
   githubUsername = githubUsernameQ || githubUsername;
